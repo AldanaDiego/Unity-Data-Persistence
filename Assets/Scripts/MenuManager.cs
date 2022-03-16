@@ -18,6 +18,8 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         this.topScoresText.text = TopScoreManager.Instance.GetTopScoresString();
+        this.nameInput.text = TopScoreManager.Instance.GetCurrentPlayerName();
+        this.NameInputValueChanged();
         this.nameInput.onValueChanged.AddListener(delegate {NameInputValueChanged();});
     }
 

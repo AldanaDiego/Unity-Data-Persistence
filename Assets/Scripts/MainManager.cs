@@ -13,12 +13,14 @@ public class MainManager : MonoBehaviour
     public Text ScoreText;
     public Text BestScoreText;
     public GameObject GameOverText;
+    public GameObject RestartButton;
+    public GameObject BackToMenuButton;
     
     private bool m_Started = false;
     private int m_Points;
     private int brickCount;
     
-    private bool m_GameOver = false;
+    //private bool m_GameOver = false;
 
     
     // Start is called before the first frame update
@@ -43,13 +45,16 @@ public class MainManager : MonoBehaviour
                 Ball.AddForce(forceDir * 2.0f, ForceMode.VelocityChange);
             }
         }
-        else if (m_GameOver)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            }
-        }
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
     void AddPoint(int point)
@@ -65,8 +70,10 @@ public class MainManager : MonoBehaviour
 
     public void GameOver()
     {
-        m_GameOver = true;
+        //m_GameOver = true;
         GameOverText.SetActive(true);
+        RestartButton.SetActive(true);
+        BackToMenuButton.SetActive(true);
     }
 
     private IEnumerator FillBoard()

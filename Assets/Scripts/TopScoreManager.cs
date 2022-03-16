@@ -63,6 +63,11 @@ public class TopScoreManager : MonoBehaviour
         this.currentPlayerName = name;
     }
 
+    public string GetCurrentPlayerName()
+    {
+        return this.currentPlayerName;
+    }
+
     public string GetBestScore()
     {
         if (this.topScores.Length > 0 && this.topScores[0] != null) {
