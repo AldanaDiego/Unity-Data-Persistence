@@ -8,6 +8,7 @@ public class TopScoreManager : MonoBehaviour
     public static TopScoreManager Instance;
     private Score[] topScores;
     private int topScoresLength = 10;
+    private string currentPlayerName;
     
     private void Awake()
     {
@@ -33,7 +34,7 @@ public class TopScoreManager : MonoBehaviour
         }
     }
 
-    private void SaveTopScores()
+    public void SaveTopScores()
     {
         string json = JsonUtility.ToJson(this.topScores);
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
@@ -55,6 +56,11 @@ public class TopScoreManager : MonoBehaviour
         }
 
         return scoreString;
+    }
+
+    public void SetCurrentPlayer(string name)
+    {
+        this.currentPlayerName = name;
     }
 
     [System.Serializable]
