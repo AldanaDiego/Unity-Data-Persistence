@@ -63,6 +63,15 @@ public class TopScoreManager : MonoBehaviour
         this.currentPlayerName = name;
     }
 
+    public string GetBestScore()
+    {
+        if (this.topScores.Length > 0 && this.topScores[0] != null) {
+            return "Best Score: " + this.topScores[0].playerName + " : " + this.topScores[0].score;
+        } else {
+            return "Best Score: 0";
+        }
+    }
+
     [System.Serializable]
     class Score
     {
