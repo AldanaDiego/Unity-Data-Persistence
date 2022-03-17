@@ -28,7 +28,6 @@ public class TopScoreManager : MonoBehaviour
     private void LoadTopScores()
     {
         string path = Application.persistentDataPath + "/savedata";
-        Debug.Log(path);
         if (File.Exists(path)) {
             byte[] data = File.ReadAllBytes(path);
             this.topScores = MessagePackSerializer.Deserialize<List<Score>>(data);
