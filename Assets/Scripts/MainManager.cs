@@ -71,6 +71,8 @@ public class MainManager : MonoBehaviour
     public void GameOver()
     {
         //m_GameOver = true;
+        TopScoreManager.Instance.AddNewScore(m_Points);
+        BestScoreText.text = TopScoreManager.Instance.GetBestScore();
         GameOverText.SetActive(true);
         RestartButton.SetActive(true);
         BackToMenuButton.SetActive(true);
